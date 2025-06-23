@@ -5,7 +5,7 @@ body {
   padding: 2em;
   transition: transform 0.2s ease-out;
   will-change: transform;
-  background-image: url('img/a-jornada-ao-mercado-wallpaper.png');
+  background-image: url('https://raw.githubusercontent.com/od1n0/heresia-caverna/main/img/a-jornada-ao-mercado-wallpaper.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
