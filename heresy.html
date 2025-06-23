@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<title>Temporada da Heresia - A Caverna</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="overlay"></div>
+    <div id="tooltip" class="tooltip"></div>
+    <div class="parallax-container">
+
+<h1>TEMPORADA DA HERESIA ‑ A CAVERNA</h1>
+
+<div class="search-container">
+  <input id="filtro" type="text" placeholder="🔍 Buscar desafio..." oninput="filtrar()"/>
+  <button onclick="document.getElementById('filtro').value=''; filtrar();" style="background:#444;color:#eee;border:none;padding:0.5em 1em;margin-top:1em;cursor:pointer;">Limpar Busca</button>
+</div>
+
+<!-- <table class="tabela">
+<thead>
+<tr><th>GRUPO</th><th>DESAFIOS</th><th>ESTRATÉGIA</th><th>RECOMPENSA</th><th>DETALHES</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td><td>Sword kills (sem 1 & 7)</td><td>Sword Tokens + XP</td><td><a href="#grupo-1">Ver mais</a></td></tr>
+<tr><td>2</td><td>2</td><td>Fusion/Trace kills (sem 10)</td><td>Pentes & shaders</td><td><a href="#grupo-2">Ver mais</a></td></tr>
+<tr><td>3</td><td>1</td><td>Granade Launcher kills (sem 3)</td><td>Heavy loot</td><td><a href="#grupo-3">Ver mais</a></td></tr>
+<tr><td>4</td><td>4</td><td>MG/AR/SMG combos (sem 2,5,8)</td><td>Ammo kits + XP</td><td><a href="#grupo-4">Ver mais</a></td></tr>
+<tr><td>5</td><td>2</td><td>Bow & Linear (sem 4,6)</td><td>Bow mod + XP</td><td><a href="#grupo-5">Ver mais</a></td></tr>
+<tr><td>6</td><td>2</td><td>SMG & Sidearm rush (sem 8,9)</td><td>Fast loadouts</td><td><a href="#grupo-6">Ver mais</a></td></tr>
+<tr><td>7</td><td>9</td><td>bençãos & chests no Submundo (1‑5,8)</td><td>Runic perks + XP</td><td><a href="#grupo-7">Ver mais</a></td></tr>
+<tr><td>8</td><td>11</td><td>Corte das Lâminas full run (6‑9)</td><td>Powers + XP</td><td><a href="#grupo-8">Ver mais</a></td></tr>
+<tr><td>9</td><td>12</td><td>PvP: Arc, Supers, Trials, Strand, Rifts (1‑16)</td><td>Crisol gear</td><td><a href="#grupo-9">Ver mais</a></td></tr>
+<tr><td>10</td><td>12</td><td>Rituals finais, Strand PvE, atividades e locais (6‑16)</td><td>Artefato + Épico</td><td><a href="#grupo-10">Ver mais</a></td></tr>
+</tbody>
+</table> -->
+
+<!-- Seção modelo: apenas primeira, as outras seguem mesma estrutura! -->
+
+<div class="grupo-section" id="grupo-1">
+    <h2>Grupo 1 — Corte das Lâminas: Void, Glaive & Sword ⚔️💜</h2>
+    <div class="progresso" id="progresso-grupo-1"></div>
+    <div class="progresso-bar-container"><div class="progresso-bar" id="barra-grupo-1"></div></div>
+    <button class="toggle-all" id="btn-grupo-1" onclick="toggleAll('grupo-1')">Marcar todos</button>
+    <button class="estrategia-btn" onclick="toggleEstrategia(this)">Ver Estratégia</button>
+    <div class="estrategia-texto" style="display: none;">
+      <em>
+        Foco total na Corte das Lâminas com subclasse Void e armas de curto alcance (Glaive ou Sword). 
+        Faça as Augmentations e use suas runas pra impulsionar ainda mais o progresso. PvE e PvP combinados!
+      </em>
+    </div>
+  
+    <ul>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-1')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Rites of the Deep – Parte II <span class="semana-tag">S7</span></span>
+        <div class="descricao">
+          Conclua o Ato II, Parte II de "Rites of the Deep".
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-1')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Heretical Arsenal (Glaive) <span class="semana-tag">S7</span></span>
+        <div class="descricao">
+          Derrote combatentes com golpes finais de Glaive. Bônus de progresso em atividades da Heresia ou ao derrotar Guardiões. Recompensa: item masterworked com Traço de Origem adicional.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-1')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Corte das Lâminas Augmentations <span class="semana-tag">S7</span></span>
+        <div class="descricao">
+          Durante encontros na Corte das Lâminas, complete Augmentations que ajudam sua equipe.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-1')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Corte das Lâminas Void <span class="semana-tag">S7</span></span>
+        <div class="descricao">
+          Derrote inimigos utilizando subclasse Void ou Prismatic na Corte das Lâminas. Bônus ao gastar Runas roubadas em compras como Void Transmutation ou Well of Light.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-1')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">It’s Only Sword Logical <span class="semana-tag">S7</span></span>
+        <div class="descricao">
+          Derrote inimigos com Swords ou Glaives na Corte das Lâminas. Progresso adicional ao gastar runas roubadas em compras de armas relicárias durante a atividade.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-1')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Arcing Sparks <span class="semana-tag">S1</span></span>
+        <div class="descricao">
+          Derrote Guardiões com dano Arc no Crisol.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-1')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Spark Defender <span class="semana-tag">S7</span></span>
+        <div class="descricao">
+          Marque pontos no modo Rift (Crisol). Bônus por acender o Rift.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-1')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Possuídos Slayer <span class="semana-tag">S7</span></span>
+        <div class="descricao">
+          Derrote inimigos Possuídos em qualquer lugar do sistema. Progresso adicional nas atividades da Heresia.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-1')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Growing Power <span class="semana-tag">S7</span></span>
+        <div class="descricao">
+          Adquira a arma ritual desta temporada.
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+  
+  
+
+<!-- Grupo 2 -->
+<div class="grupo-section" id="grupo-2">
+    <h2>Grupo 2 — Fusion & Trace Fusion Run 🚀🔫</h2>
+    <div class="progresso" id="progresso-grupo-2"></div>
+    <div class="progresso-bar-container"><div class="progresso-bar" id="barra-grupo-2"></div></div>
+    <button class="toggle-all" id="btn-grupo-2" onclick="toggleAll('grupo-2')">Marcar todos</button>
+    <button class="estrategia-btn" onclick="toggleEstrategia(this)">Ver Estratégia</button>
+    <div class="estrategia-texto" style="display: none;">
+      <em>
+        Entre em atividades da Heresia com seu Fusion ou Trace Rifle favorito — foque nos golpes finais com Fusão/Trace pra acumular tudo de uma vez! Combine PvE casual com Crisol/Artimanha.
+      </em>
+    </div>
+  
+    <ul>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-2')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Heretical Arsenal (Fusion Rifle) <span class="semana-tag">S10</span></span>
+        <div class="descricao">
+          Derrote combatentes com golpes finais de Fuzil de Fusão. Progresso adicional em atividades da Heresia ou ao derrotar Guardiões. Recompensa: item masterworked com Traço de Origem adicional.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-2')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Fusion or Trace Rifle Final Blows <span class="semana-tag">S10</span></span>
+        <div class="descricao">
+          Derrote inimigos com Fuzis de Fusão ou Trace. Progresso adicional em atividades da Heresia ou ao eliminar outros Guardiões.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-2')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Large Arms Soulfire <span class="semana-tag">S2</span></span>
+        <div class="descricao">
+          Derrote alvos com Metralhadoras ou Lança‑granadas. Progresso extra em atividades da Heresia ou ao derrotar Guardiões no Crisol.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-2')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Bond on It <span class="semana-tag">S2</span></span>
+        <div class="descricao">
+          (Dado anterior: "Bank on It"?) Complete partidas Artimanha e ganhe bônus por vitórias e carga de motes.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-2')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Possuídos Destroyer <span class="semana-tag">S2</span></span>
+        <div class="descricao">
+          Em qualquer playlist de Vanguard Ops ou Artimanha, derrote inimigos Possuídos. Progresso adicional se for com golpes finais de habilidade.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-2')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Frozen Weave <span class="semana-tag">S2</span></span>
+        <div class="descricao">
+          Derrote inimigos com dano Strand ou Stasis no Submundo. Progresso bônus quando empoderado por Herald of the Deep, Paracausal Siphon ou Finishing Strand.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-2')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Sigil Shards <span class="semana-tag">S1</span></span>
+        <div class="descricao">
+          Adquira Sigil Shards abrindo baús em atividades do Submundo e completando atividades por todo o sistema.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-2')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Sigil Shard Spender <span class="semana-tag">S1</span></span>
+        <div class="descricao">
+          Gaste Sigil Shards para desbloquear Runic Enhancements no Shaping Slab ou no Tomo da Vontade.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-2')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Essência do Desejo <span class="semana-tag">S1</span></span>
+        <div class="descricao">
+          Colete Essência do Desejo purgando Essência Metastática Metastasizada no Submundo – só coalesce no baú final de cada seção.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-2')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Essência do Desejo Spender <span class="semana-tag">S1</span></span>
+        <div class="descricao">
+          Gaste Essência do Desejo ativando ritual no Tomo da Vontade ou abrindo baús Tomados no Submundo.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-2')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Submundo Power <span class="semana-tag">S1</span></span>
+        <div class="descricao">
+          Adquira bençãos no Submundo para buffs temporários. Progresso extra por bençãos maiores ou Corrupted.
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+  
+  
+  <!-- Grupo 3 -->
+  <div class="grupo-section" id="grupo-3">
+    <h2>Grupo 3 — Explosão de Granada 💥</h2>
+    <div class="progresso" id="progresso-grupo-3"></div>
+    <div class="progresso-bar-container"><div class="progresso-bar" id="barra-grupo-3"></div></div>
+    <button class="toggle-all" id="btn-grupo-3" onclick="toggleAll('grupo-3')">Marcar todos</button>
+    <button class="estrategia-btn" onclick="toggleEstrategia(this)">Ver Estratégia</button>
+    <div class="estrategia-texto" style="display: none;">
+      <em>
+        Nível explosivo no Submundo: equipe seu Grenade Launcher e foque em encontrar vários inimigos aglomerados pra detoná-los em sequência — maximize progresso em uma única run!
+      </em>
+    </div>
+  
+    <ul>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-3')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Heretical Arsenal (Grenade Launcher) <span class="semana-tag">S3</span></span>
+        <div class="descricao">
+          Derrote combatentes com golpes finais de Lança‑granadas. Progresso extra em atividades da Heresia ou ao derrotar Guardiões. Recompensa: item masterworked com Traço de Origem adicional.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-3')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Explosive Punch <span class="semana-tag">S4</span></span>
+        <div class="descricao">
+          No Submundo, derrote inimigos com granadas ou corpo a corpo. Progresso extra com perks como Melee/Grenade Recharge, Bandolier ou Ability Corruption.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-3')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Valued Destruction <span class="semana-tag">S4</span></span>
+        <div class="descricao">
+          Como time, destrua Hive Ritual Jars no Submundo para ganhar munição extra, Orbs de cura e, às vezes, Minor bençãos.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-3')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Minor Blessings Aplenty <span class="semana-tag">S4</span></span>
+        <div class="descricao">
+          Complete uma atividade do Submundo com um grande número de stacks de Minor bençãos em uma só run.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-3')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Frozen Weave <span class="semana-tag">S2</span></span>
+        <div class="descricao">
+          Derrote inimigos com dano Strand ou Stasis no Submundo. Progresso bônus quando empoderado por Herald of the Deep, Paracausal Siphon ou Finishing Strand.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-3')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Submundo Power <span class="semana-tag">S1</span></span>
+        <div class="descricao">
+          Adquira bençãos no Submundo para buffs temporários. Progresso extra por bençãos maiores ou Corrupted.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-3')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Heresia Chests <span class="semana-tag">S8</span></span>
+        <div class="descricao">
+          Abra baús em atividades da Heresia, com bônus ao completar encontros e derrotar challengers.
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+  
+  
+  <!-- Grupo 4 -->
+  <div class="grupo-section" id="grupo-4">
+    <h2>Grupo 4 — Chumbo Grosso 🔫</h2>
+    <div class="progresso" id="progresso-grupo-4"></div>
+    <div class="progresso-bar-container"><div class="progresso-bar" id="barra-grupo-4"></div></div>
+    <button class="toggle-all" id="btn-grupo-4" onclick="toggleAll('grupo-4')">Marcar todos</button>
+    <button class="estrategia-btn" onclick="toggleEstrategia(this)">Ver Estratégia</button>
+    <div class="estrategia-texto" style="display: none;">
+      <em>
+        Use metralhadoras, ARs e SMGs em sequência — abuse do potencial pesado e cinético nas rotas da Heresia, e otimize o progresso usando Fountain com boosts.
+      </em>
+    </div>
+  
+    <ul>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-4')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Heretical Arsenal (Machine Gun) <span class="semana-tag">S2</span></span>
+        <div class="descricao">
+          Derrote combatentes com golpes finais de Metralhadora. Progresso extra em atividades da Heresia ou ao derrotar Guardiões. Recompensa: item masterworked com Traço de Origem adicional.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-4')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Large Arms Soulfire <span class="semana-tag">S2</span></span>
+        <div class="descricao">
+          Derrote alvos com Metralhadoras ou Lança‑granadas. Progresso extra em atividades da Heresia ou ao derrotar Guardiões no Crisol.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-4')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Heretical Arsenal (Auto Rifle) <span class="semana-tag">S5</span></span>
+        <div class="descricao">
+          Derrote combatentes com golpes finais de Fuzil Automático. Progresso extra em atividades da Heresia ou ao derrotar Guardiões. Recompensa: item masterworked com Traço de Origem adicional.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-4')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Submachine Gun final blows <span class="semana-tag">S8</span></span>
+        <div class="descricao">
+          Derrote combatentes com golpes finais de Submetralhadora. Progresso extra em atividades da Heresia ou ao derrotar Guardiões. Recompensa: item especial com Traço de Origem adicional.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-4')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Beat Back the Submundo <span class="semana-tag">S5</span></span>
+        <div class="descricao">
+          Complete encontros no Submundo com Runic Enhancements que custem ao menos 5 Sigil Shards. Progresso adicional para cada encontro bem-sucedido.
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+  
+  
+  <!-- Grupo 5 -->
+  <div class="grupo-section" id="grupo-5">
+    <h2>Grupo 5 — Precisão Letal 🎯</h2>
+    <div class="progresso" id="progresso-grupo-5"></div>
+    <div class="progresso-bar-container"><div class="progresso-bar" id="barra-grupo-5"></div></div>
+    <button class="toggle-all" id="btn-grupo-5" onclick="toggleAll('grupo-5')">Marcar todos</button>
+    <button class="estrategia-btn" onclick="toggleEstrategia(this)">Ver Estratégia</button>
+    <div class="estrategia-texto" style="display: none;">
+      <em>
+        Pegue sua Linear ou Arco, mire com calma e farm seu progresso no Submundo. Use bençãos que aumentem precisão ou dano para acelerar a eliminação.
+      </em>
+    </div>
+  
+    <ul>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-5')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Heretical Arsenal (Linear Fusion Rifle) <span class="semana-tag">S4</span></span>
+        <div class="descricao">
+          Derrote combatentes com golpes finais de Fuzil de Fusão Linear. Progresso extra em atividades da Heresia ou ao derrotar Guardiões. Esta recompensa oferece uma arma com traço de origem adicional.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-5')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Heretical Arsenal (Bow) <span class="semana-tag">S6</span></span>
+        <div class="descricao">
+          Derrote combatentes com golpes finais de Arco. Progresso extra em atividades da Heresia ou ao derrotar Guardiões. Esta recompensa oferece uma arma com traço de origem adicional.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-5')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Bow or Auto Rifle Final Blows <span class="semana-tag">S5</span></span>
+        <div class="descricao">
+          Derrote combatentes com Arcos ou Fuzis Automáticos. Progresso adicional em atividades da Heresia ou ao derrotar Guardiões.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-5')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Precision Calibration <span class="semana-tag">S13</span></span>
+        <div class="descricao">
+          Calibre armas de precisão — Fuzis de Batedor, Snipers e Fuzis de Fusão Linear — acertando golpes finais de precisão. Progresso extra contra Guardiões.
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+  
+  
+  <!-- Grupo 6 -->
+  <div class="grupo-section" id="grupo-6">
+    <h2>Grupo 6 — Táticas de Curta Distância 🔫</h2>
+    <div class="progresso" id="progresso-grupo-6"></div>
+    <div class="progresso-bar-container"><div class="progresso-bar" id="barra-grupo-6"></div></div>
+    <button class="toggle-all" id="btn-grupo-6" onclick="toggleAll('grupo-6')">Marcar todos</button>
+    <button class="estrategia-btn" onclick="toggleEstrategia(this)">Ver Estratégia</button>
+    <div class="estrategia-texto" style="display: none;">
+      <em>
+        Dê preferência para Submachine Guns e Sidearms na Corte das Lâminas ou Crisol. Escolha o mapa mais apertado possível e vá pra cima — os inimigos nem saberão o que os atingiu! 🌀
+      </em>
+    </div>
+  
+    <ul>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-6')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Heretical Arsenal (Submachine Gun) <span class="semana-tag">S8</span></span>
+        <div class="descricao">
+          Derrote combatentes com golpes finais de Submachine Gun. Progresso extra em atividades da Heresia ou ao derrotar Guardiões. Esta recompensa oferece uma arma com traço de origem adicional.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-6')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Heretical Arsenal (Sidearm) <span class="semana-tag">S9</span></span>
+        <div class="descricao">
+          Derrote combatentes com golpes finais de Sidearm. Progresso extra em atividades da Heresia ou ao derrotar Guardiões. Esta recompensa oferece uma arma com traço de origem adicional.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-6')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Small Arms Soulfire <span class="semana-tag">S9</span></span>
+        <div class="descricao">
+          Derrote alvos com Submachine Guns ou Sidearms. Progresso adicional em atividades da Heresia ou ao derrotar Guardiões no Crisol.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-6')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Calibrate Close Range <span class="semana-tag">S9</span></span>
+        <div class="descricao">
+          Calibre armas de curta distância — Sidearms, Submachine Guns, Shotguns, Glaives e Swords. Progresso extra ao derrotar Guardiões.
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+  
+  
+  <!-- Grupo 7 -->
+  <div class="grupo-section" id="grupo-7">
+    <h2>Grupo 7 — Correria no Submundo 🌑</h2>
+    <div class="progresso" id="progresso-grupo-7"></div>
+    <div class="progresso-bar-container"><div class="progresso-bar" id="barra-grupo-7"></div></div>
+    <button class="toggle-all" id="btn-grupo-7" onclick="toggleAll('grupo-7')">Marcar todos</button>
+    <button class="estrategia-btn" onclick="toggleEstrategia(this)">Ver Estratégia</button>
+    <div class="estrategia-texto" style="display: none;">
+      <em>
+        Foque em runs longas no Submundo com melhorias rúnicas ativadas — dalhe nos baús, bençãos, Fragmentos e desafios juntos, e deixe a Eris orgulhosa! 🌀🔮
+      </em>
+    </div>
+  
+    <ul>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-7')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Essência do Desejo <span class="semana-tag">S1</span></span>
+        <div class="descricao">
+          Colete Essência do Desejo purgando Essência Metastática com o vendedor da Eris na Última Cidade. Essência Metastática que aparece no Submundo só vira Essência dos Desejos no baú final de cada seção — o resto some após a run.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-7')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Essência do Desejo Spender <span class="semana-tag">S1</span></span>
+        <div class="descricao">
+          Gaste Essência do Desejo ativando ritual no Tomo da Vontade ou abrindo baús Tomados durante o Submundo.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-7')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Sigil Shards <span class="semana-tag">S1</span></span>
+        <div class="descricao">
+          Adquira Sigil Shards abrindo baús no Submundo e completando atividades por todo o sistema.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-7')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Sigil Shard Spender <span class="semana-tag">S1</span></span>
+        <div class="descricao">
+          Gaste Sigil Shards para desbloquear Runic Enhancements no Shaping Slab ou Crumbling Scriptures no Tomo da Vontade.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-7')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Submundo Power <span class="semana-tag">S1</span></span>
+        <div class="descricao">
+          Adquira bençãos temporários no Submundo. Progresso adicional por maiores ou Corrupted bençãos.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-7')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Frozen Weave <span class="semana-tag">S2</span></span>
+        <div class="descricao">
+          Derrote inimigos com dano Strand ou Stasis no Submundo. Recebe bônus quando estiver empoderado por Herald of the Deep, Paracausal Siphon ou Finishing Strand.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-7')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Minor Blessings Aplenty <span class="semana-tag">S4</span></span>
+        <div class="descricao">
+          Complete uma run no Submundo com muitas Minor Boon stacks numa única sessão.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-7')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Explosive Punch <span class="semana-tag">S4</span></span>
+        <div class="descricao">
+          No Submundo, derrote inimigos com granadas ou corpo-a-corpo. Tem bônus se tiver perks como Melee/Grenade Recharge, Bandolier ou Ability Corruption.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-7')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Valued Destruction <span class="semana-tag">S4</span></span>
+        <div class="descricao">
+          Em fireteam, destrua Hive Ritual Jars no Submundo para ganhar munição extra, Orbs de cura e, às vezes, Minor bençãos.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-7')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Beat Back the Submundo <span class="semana-tag">S5</span></span>
+        <div class="descricao">
+          Complete encontros no Submundo com Runic Enhancements valendo 5 ou mais Sigil Shards.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-7')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Heresia Chests <span class="semana-tag">S8</span></span>
+        <div class="descricao">
+          Abra baús em atividades da Heresia, com bônus por concluir encontros e derrotar challengers.
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+  
+  
+  <!-- Grupo 8 -->
+  <div class="grupo-section" id="grupo-8">
+    <h2>Grupo 8 — Corte das Lâminas Elite 🛡️</h2>
+    <div class="progresso" id="progresso-grupo-8"></div>
+    <div class="progresso-bar-container"><div class="progresso-bar" id="barra-grupo-8"></div></div>
+    <button class="toggle-all" id="btn-grupo-8" onclick="toggleAll('grupo-8')">Marcar todos</button>
+    <button class="estrategia-btn" onclick="toggleEstrategia(this)">Ver Estratégia</button>
+    <div class="estrategia-texto" style="display: none;">
+      <em>
+        Bote pra quebrar na Corte das Lâminas com runas ativas, armas pesadas, subclasse Void/Prismática e mods de orbs — tá quase sendo digno do título "Elite", hein? 🛡️✨
+      </em>
+    </div>
+  
+    <ul>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-8')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Dreadnaught Challengers <span class="semana-tag">S6</span></span>
+        <div class="descricao">
+          Derrote desafiantes na atividade Court of Blades. Vencer esses challengers rouba a Rune Charge deles, que pode ser usada para comprar entre rodadas.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-8')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Rune Stealer <span class="semana-tag">S6</span></span>
+        <div class="descricao">
+          Na Court of Blades, gaste runas para comprar armas poderosas – os challengers derrotados convertem Rune Charge em runas para essas compras.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-8')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Special Ammo Slayer <span class="semana-tag">S6</span></span>
+        <div class="descricao">
+          Derrote inimigos com armas de munição especial. Recebe bônus se tiver usado runas em Dark Execution, Paracausal Bandolier ou Vanguard Support.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-8')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Corte das Lâminas Enhancements <span class="semana-tag">S6</span></span>
+        <div class="descricao">
+          Desbloqueie melhorias rúnicas para a Court of Blades no vendedor Shaping Slab.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-8')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Corte das Lâminas Augmentations <span class="semana-tag">S7</span></span>
+        <div class="descricao">
+          Complete aprimoramentos (Augments) durante os encontros na Court of Blades para ajudar sua equipe com buffs.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-8')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Corte das Lâminas Void <span class="semana-tag">S7</span></span>
+        <div class="descricao">
+          Derrote inimigos usando subclasse Void ou Prismatic na Court of Blades. Bônus por gastar runas em Void Transmutation ou Well of Light.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-8')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Corte das Lâminas Orbs <span class="semana-tag">S9</span></span>
+        <div class="descricao">
+          Gere Orbs de Poder durante a Court of Blades. Recebe bônus se usar runas comprando Paracausal Bandolier ou Rally Buff.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-8')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Enhanced Corte das Lâminas <span class="semana-tag">S9</span></span>
+        <div class="descricao">
+          Complete a Court of Blades com melhorias rúnicas equipadas de ao menos 7 de poder — mais dificuldade, mais progresso.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-8')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Heavy Slayer <span class="semana-tag">S8</span></span>
+        <div class="descricao">
+          Derrote inimigos com armas pesadas na Court of Blades. Recebe bônus se gastou runas em Ritual of the Deep ou Ascendant Slayer.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-8')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Rapid Corte das Lâminas <span class="semana-tag">S8</span></span>
+        <div class="descricao">
+          Derrote inimigos rapidamente na Court of Blades — meta de velocidade para elite de verdade!
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+  
+  
+  <!-- Grupo 9 -->
+  <div class="grupo-section" id="grupo-9">
+    <h2>Grupo 9 — Crisol Trials Focus ⚔️</h2>
+    <button class="toggle-all" id="btn-grupo-9" onclick="toggleAll('grupo-9')">Marcar todos</button>
+    <div class="progresso" id="progresso-grupo-9"></div>
+    <div class="progresso-bar-container"><div class="progresso-bar" id="barra-grupo-9"></div></div>
+    <button class="estrategia-btn" onclick="toggleEstrategia(this)">Ver Estratégia</button>
+    <div class="estrategia-texto" style="display: none;">
+      <em>
+        Foque em modos PvP com subclasse Arco e Supers.
+        Use Fusion Rifles, Glaives ou MG (Potent Projectiles) e Filamento (Stranded) para fechar os dois objetivos em uma mesma jogatina.
+      </em>
+    </div>
+    <ul>
+        <li><input type="checkbox" onchange="liToggle(this,'grupo-9')"/><div class="check-icon">✔</div>
+          <span class="titulo">Arcing Sparks <span class="semana-tag">S1</span></span>
+          <div class="descricao">
+            Derrote Guardiões com dano Arc no Crisol.
+          </div>
+        </li>
+        <li><input type="checkbox" onchange="liToggle(this,'grupo-9')"/><div class="check-icon">✔</div>
+          <span class="titulo">In the Zone <span class="semana-tag">S5</span></span>
+          <div class="descricao">
+            Capture zonas no modo Zone Capture no Crisol. Progresso bônus por obter a maior pontuação da partida.
+          </div>
+        </li>
+        <li><input type="checkbox" onchange="liToggle(this,'grupo-9')"/><div class="check-icon">✔</div>
+          <span class="titulo">Super Final Blows <span class="semana-tag">S10</span></span>
+          <div class="descricao">
+            Derrote combatentes com Supers em qualquer lugar. Progresso adicional em atividades da Heresia ou ao derrotar Guardiões.
+          </div>
+        </li>
+        <li><input type="checkbox" onchange="liToggle(this,'grupo-9')"/><div class="check-icon">✔</div>
+          <span class="titulo">Spark Defender <span class="semana-tag">S7</span></span>
+          <div class="descricao">
+            Marque pontos no modo Rift. Progresso bônus por acender o Rift.
+          </div>
+        </li>
+        <li><input type="checkbox" onchange="liToggle(this,'grupo-9')"/><div class="check-icon">✔</div>
+          <span class="titulo">Gotta Win Them All <span class="semana-tag">S11</span></span>
+          <div class="descricao">
+            Complete atividades nas playlists de Vanguard, Artimanha ou Crisol. Progresso bônus por concluir Vanguard em dificuldade Avançada ou vencer em Artimanha/Crisol.
+          </div>
+        </li>
+        <li><input type="checkbox" onchange="liToggle(this,'grupo-9')"/><div class="check-icon">✔</div>
+          <span class="titulo">Expedited Violence <span class="semana-tag">S12</span></span>
+          <div class="descricao">
+            Derrote inimigos rapidamente no Crisol, Artimanha ou Vanguarda. Bônus por finalizações em Guardiões.
+          </div>
+        </li>
+        <li><input type="checkbox" onchange="liToggle(this,'grupo-9')"/><div class="check-icon">✔</div>
+          <span class="titulo">Superfluous <span class="semana-tag">S12</span></span>
+          <div class="descricao">
+            Derrote Guardiões com Supers no modo Clash do Crisol.
+          </div>
+        </li>
+        <li><input type="checkbox" onchange="liToggle(this,'grupo-9')"/><div class="check-icon">✔</div>
+          <span class="titulo">Fleeting Glory <span class="semana-tag">S13</span></span>
+          <div class="descricao">
+            Complete partidas no modo competitivo do Crisol. Progresso bônus por vitórias.
+          </div>
+        </li>
+        <li><input type="checkbox" onchange="liToggle(this,'grupo-9')"/><div class="check-icon">✔</div>
+          <span class="titulo">Darkest Nightfall <span class="semana-tag">S14</span></span>
+          <div class="descricao">
+            Complete qualquer Nightfall em dificuldade Avançada ou superior. Progresso extra por dificuldades maiores.
+          </div>
+        </li>
+        <li><input type="checkbox" onchange="liToggle(this,'grupo-9')"/><div class="check-icon">✔</div>
+          <span class="titulo">Trial by Firing Squad <span class="semana-tag">S10</span></span>
+          <div class="descricao">
+            Vença múltiplos rounds no Trials of Osiris.
+          </div>
+        </li>
+        <li><input type="checkbox" onchange="liToggle(this,'grupo-9')"/><div class="check-icon">✔</div>
+          <span class="titulo">Potent Projectiles <span class="semana-tag">S16</span></span>
+          <div class="descricao">
+            Derrote Guardiões no Crisol ou Artimanha com Fuzis de Fusão, Glaives, Lança-foguetes, Metralhadoras ou Fuzis de Fusão Linear.
+          </div>
+        </li>
+        <li><input type="checkbox" onchange="liToggle(this,'grupo-9')"/><div class="check-icon">✔</div>
+          <span class="titulo">Stranded <span class="semana-tag">S16</span></span>
+          <div class="descricao">
+            Derrote Guardiões em qualquer modo do Crisol usando dano de Strand.
+          </div>
+        </li>
+      </ul>
+  </div>
+  
+  
+  <!-- Grupo 10 -->
+  <div class="grupo-section" id="grupo-10">
+    <h2>Grupo 10 — Ritual & Seasonal Finale 🏆</h2>
+    <div class="progresso" id="progresso-grupo-10"></div>
+    <div class="progresso-bar-container"><div class="progresso-bar" id="barra-grupo-10"></div></div>
+    <button class="toggle-all" id="btn-grupo-10" onclick="toggleAll('grupo-10')">Marcar todos</button>
+    <button class="estrategia-btn" onclick="toggleEstrategia(this)">Ver Estratégia</button>
+    <div class="estrategia-texto" style="display: none;">
+      <em>
+        Na reta final da temporada, combine rituais, elementos e exploração pra fechar o ciclo com estilo — é macumba high-level! 🕯️✨
+      </em>
+    </div>
+  
+    <ul>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-10')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Rites of the Deep (Acts II) <span class="semana-tag">S6‑8</span></span>
+        <div class="descricao">
+          Complete todas as três partes da missão "Rites of the Deep" no Ato II: Parte I, II e III.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-10')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Ritual Ornament <span class="semana-tag">S9</span></span>
+        <div class="descricao">
+          Adquira qualquer ornamento para a arma ritual da temporada.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-10')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Growing Power <span class="semana-tag">S7</span></span>
+        <div class="descricao">
+          Obtenha a arma ritual da Temporada da Heresia.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-10')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Meta Master <span class="semana-tag">S8</span></span>
+        <div class="descricao">
+          Derrote inimigos usando Fusion Rifles, Glaives, Machine Guns, Trace Rifles, Rocket Launchers e Linear Fusion Rifles. Bônus ao derrotar Guardiões no Crisol.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-10')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Heresy Weapon Defeats <span class="semana-tag">S16</span></span>
+        <div class="descricao">
+          Derrote inimigos com armas episódicas da Heresia. Progresso extra em atividades da temporada.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-10')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Subclass Synergy <span class="semana-tag">S12</span></span>
+        <div class="descricao">
+          Derrote inimigos com armas que combinem com o tipo de sua subclasse atual. Qualquer tipo conta se estiver usando Prismatic.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-10')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Bank, Kill, Repeat <span class="semana-tag">S16</span></span>
+        <div class="descricao">
+          Ganhe pontos bancando motes, derrotando bloqueadores e Guardiões no Gambit.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-10')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Neptune Activities <span class="semana-tag">S13</span></span>
+        <div class="descricao">
+          Em Neomuna, conclua contratos, patrulhas, eventos públicos e Setores Perdidos.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-10')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">By Heart <span class="semana-tag">S14</span></span>
+        <div class="descricao">
+          No Pale Heart, complete patrulhas, eventos públicos e colete baús em Setores Perdidos.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-10')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Tithe to Ruin <span class="semana-tag">S15</span></span>
+        <div class="descricao">
+          Derrote combatentes em qualquer lugar do sistema com ao menos um perk do artefato aprimorado ativo.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo‑10')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Europa Activities <span class="semana-tag">S15</span></span>
+        <div class="descricao">
+          Em Europa, conclua contratos, patrulhas, eventos públicos e Setores Perdidos.
+        </div>
+      </li>
+      <li>
+        <input type="checkbox" onchange="liToggle(this,'grupo-10')"/>
+        <div class="check-icon">✔</div>
+        <span class="titulo">Cosmodrome Activities <span class="semana-tag">S16</span></span>
+        <div class="descricao">
+          No Cosmodrome, conclua contratos, patrulhas, eventos públicos e Setores Perdidos.
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+    </div>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('mousemove', e => {
+      const x = (window.innerWidth / 2 - e.clientX) / 50;
+      const y = (window.innerHeight / 2 - e.clientY) / 50;
+  
+      const container = document.querySelector('.parallax-container');
+      if (container) {
+        container.style.transform = `translate(${x}px, ${y}px)`;
+      }
+    });
+  </script>    
+</body>
+</html>

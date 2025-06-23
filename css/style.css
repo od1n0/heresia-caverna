@@ -1,0 +1,307 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #121212;
+  color: #f2f2f2;
+  padding: 2em;
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+  background-image: url('a-jornada-ao-mercado-wallpaper.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* faz o parallax natural rolar */
+  
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  color: #ffffff;
+  animation: piscar 1s infinite;
+}
+
+@keyframes piscar {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.search-container {
+  text-align: center;
+  margin-top: 1em;
+}
+
+input#filtro {
+  padding: 0.5em;
+  width: 80%;
+  max-width: 400px;
+  background: #1e1e1e;
+  color: #f2f2f2;
+  border: 1px solid #3fa9f5;
+  border-radius: 1px;
+}
+
+button {
+  font-family: 'Poppins', sans-serif;
+}
+
+table {
+    width: auto;
+    border-spacing: 0 8px;
+    margin: 2em auto;
+  }
+  
+  th, td {
+    padding: 12px 16px;
+  }
+  
+  thead th {
+    border-bottom: 2px solid #707070;
+    color: #7ecffc;
+    font-weight: 600;
+  }
+  
+  tbody tr {
+    background: #1f1f1f;
+    border: 1px solid #3fa9f5;
+    border-radius: 4px;
+  }
+  
+  tbody tr + tr {
+    margin-top: 8px;
+  }
+  
+  td a {
+    color: #b6c3ca;
+    text-decoration: none;
+  }
+  td a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  @media (max-width: 768px) {
+    table {
+      font-size: 0.85em;
+      width: 100%;
+      display: block;
+      overflow-x: auto;
+    }
+  }
+
+.grupo-section {
+  border: 1px solid #2e2e2e;
+  background-color: rgba(20, 20, 20, 0.85);  padding: 1.5em;
+  border-radius: 1px;
+  box-shadow: 0 0 8px rgba(255,255,255,0.05);
+  margin-top: 3em;
+}
+
+.grupo-section h2 {
+  color: #3fa9f5;
+  font-size: 1.3em;
+  margin-bottom: 0.5em;
+}
+
+.grupo-section hr {
+  border: 0;
+  height: 1px;
+  background: #444;
+  margin: 1em 0;
+}
+
+.grupo-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1em;
+}
+
+.grupo-section ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1em;
+  padding: 0;
+}
+
+.grupo-section li {
+  background: #1f1f1f;
+  padding: 12px;
+  border: 1px solid #333;
+  border-radius: 2px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background 0.3s, border-color 0.3s;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+
+}
+
+.grupo-section li:hover {
+  background: #272727;
+  border-color: #3fa9f5;
+}
+
+.grupo-section li .titulo {
+  font-size: 1.05em;
+  color: rgb(199, 199, 199);
+}
+
+.grupo-section li .descricao {
+    font-size: 0.9em;
+    color: #bbb;
+    margin: 0.5em 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;        /* Limita a 2 linhas */
+    -webkit-box-orient: vertical; /* Necessário para clamp funcionar */
+  }
+  
+
+.grupo-section li .check-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 1.2em;
+  color: #3fa9f5;
+  visibility: hidden;
+}
+
+.grupo-section li.completed .check-icon {
+  visibility: visible;
+}
+
+.grupo-section li.completed {
+    border: 2px solid #00aaff;
+    border-radius: 0px;
+    background-color: rgba(0, 170, 255, 0.05);
+    transition: border 0.3s, background-color 0.3s;
+  }
+
+.grupo-section li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+
+.grupo-section li:last-child {
+  border-bottom: none;
+}
+
+input[type=checkbox] {
+  accent-color: #3fa9f5;
+  margin-right: 0.5em;
+}
+
+.titulo {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 4px;
+}
+
+.titulo::after {
+    content: "◇"; /* ou outro símbolo/ícone */
+    margin-left : 6px;
+    color: #7ecffc;
+    font-size: 1em;
+  }
+
+.semana-tag {
+  background: #2e2e2e;
+  color: #eee;
+  padding: 2px 6px;
+  font-size: 0.75em;
+  border-radius: 2px;
+  margin-left: 6px;
+}
+
+.progresso {
+  font-size: 0.9em;
+  color: #aaa;
+  margin-bottom: 1em;
+}
+
+.progresso-bar-container {
+  width: 100%;
+  height: 10px;
+  background: #2b2b2b;
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.progresso-bar {
+  height: 100%;
+  background: #3fa9f5;
+  width: 0%;
+  transition: width 0.3s;
+}
+
+button.toggle-all,
+button.estrategia-btn,
+button[onclick*='filtrar'] {
+  padding: 0.6em 1.2em;
+  background: #2a2a2a;
+  color: #f0f0f0;
+  border: 1px solid #444;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-radius: 4px;
+  margin: 0.5em 0;
+}
+
+button.toggle-all:hover,
+button.estrategia-btn:hover,
+button[onclick*='filtrar']:hover {
+  background: #3fa9f5;
+  color: #000;
+}
+
+.estrategia-texto {
+  background-color: #151515;
+  padding: 1em;
+  border-left: 4px solid #3fa9f5;
+  margin-bottom: 1em;
+  color: #ccc;
+  font-style: italic;
+  border-radius: 4px;
+}
+
+.tooltip {
+    position: absolute;
+    z-index: 1000;
+    background: rgba(20,20,20,0.95);
+    color: #f2f2f2;
+    padding: 0.6em 1em;
+    border: 1px solid #555;
+    border-radius: 1px;
+    font-size: 1em;
+    max-width: 360px;
+    display: none;
+    pointer-events: none;
+    box-shadow: 0 0 8px rgba(0,0,0,0.4);
+    white-space: pre-wrap;
+    transition: opacity 0.15s ease;
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0); /* acinzentado */
+    z-index: -1;
+    pointer-events: none;
+    backdrop-filter: blur(5px);
+  }
+  
