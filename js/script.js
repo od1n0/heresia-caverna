@@ -44,13 +44,20 @@ function liToggle(cb, grupoId) {
   }
 
   function carregarProgresso() {
-    for (let grupoId in grupos) {
-      const data = JSON.parse(localStorage.getItem(grupoId) || '[]');
-      const cb = document.querySelectorAll(`#${grupoId} input[type="checkbox"]`);
-      cb.forEach((c,i)=>c.checked = data[i] || false);
-      atualizarProgresso(grupoId);
-    }
+  for (let grupoId in grupos) {
+    const data = JSON.parse(localStorage.getItem(grupoId) || '[]');
+    const cb = document.querySelectorAll(`#${grupoId} input[type="checkbox"]`);
+    
+    cb.forEach((c, i) => {
+      c.checked = !!data[i];
+      const li = c.closest('li');
+      li.classList.toggle('completed', c.checked);
+    });
+
+    atualizarProgresso(grupoId);
   }
+}
+
 
   function filtrar() {
     const termo = document.getElementById('filtro').value.toLowerCase();
